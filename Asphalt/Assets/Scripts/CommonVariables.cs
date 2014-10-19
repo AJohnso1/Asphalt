@@ -8,7 +8,7 @@ public class CommonVariables {
 	static public Vector3 mappedPosition = new Vector3(0f, 0f, 0f);
 	
 	// Rotational mapping between the physical space and the virtual world
-	static public Vector3 mappedRotation = new Vector3(0f, 0f, 0f);
+	static public Vector3 mappedRotation = new Vector3(0f, 90.0f, 0f);
 	
 	// Interpupillary distance between the eyes
 	static public float dynamicIPD = 0.064f;
