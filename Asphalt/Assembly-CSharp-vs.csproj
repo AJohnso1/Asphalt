@@ -61,6 +61,7 @@
      <Compile Include="Assets\OVR\Scripts\OVRPlayerController.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRPresetManager.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRUtils.cs" />
+     <Compile Include="Assets\Scripts\Carmovment.cs" />
      <Compile Include="Assets\Scripts\CommonVariables.cs" />
      <Compile Include="Assets\Scripts\DynamicIPD.cs" />
      <Compile Include="Assets\Scripts\InputBroker.cs" />
