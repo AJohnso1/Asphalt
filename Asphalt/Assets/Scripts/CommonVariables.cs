@@ -5,7 +5,7 @@ using System.Collections;
 public class CommonVariables {
 
 	// Positional mapping between the physical space and the virtual world
-	static public Vector3 mappedPosition = new Vector3(0f, 0f, 0f);
+	static public Vector3 mappedPosition = new Vector3(-0.075f, -0.005f, -0.05f);
 	
 	// Rotational mapping between the physical space and the virtual world
 	static public Vector3 mappedRotation = new Vector3(0f, 0f, 0f);
