@@ -5,11 +5,15 @@ public class Carmovment : MonoBehaviour {
 
 	private float speed; //0-1
 	private float rotation; // -45 to +45
-	private Vector3 forward = new Vector3 (0, 0 ,-1);
+	private Vector3 forward = new Vector3 (-1, 0 ,0);
 	private Vector3 up = new Vector3 (0, 1, 0);
 	public string RightWiimoteName = "RightWiimote";
 	public string LeftWiimoteName = "LeftWiimote";
 
+	void OnGUI() {
+		GUI.Label(new Rect(100, 100, 1000, 200), speed.ToString());
+	}
+	
 	// Use this for initialization
 	void Start () {
 		speed = 0f;
@@ -19,7 +23,7 @@ public class Carmovment : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		GameObject car = GameObject.Find("Stockcar");
+		GameObject car = GameObject.Find("carbox");
 		car.transform.Translate(forward * Time.deltaTime *speed);
 		car.transform.Rotate (up * Time.deltaTime * rotation);
 		Debug.Log (forward);
@@ -40,6 +44,7 @@ public class Carmovment : MonoBehaviour {
 
 		if(InputBroker.GetKeyDown(LeftWiimoteName + ":A")) {
 			rotation =30f;
+			Debug.Log("Test");
 		}
 		if(InputBroker.GetKeyDown(LeftWiimoteName + ":B")) {
 			rotation =-30f;
@@ -53,6 +58,14 @@ public class Carmovment : MonoBehaviour {
 		// Keyboard control
 		if (Input.GetKey(KeyCode.W)){	
 			speed += 0.05f;
+			Debug.Log(speed);
+		}
+
+		if (!Input.GetKey(KeyCode.W)){	
+			if(speed >=0.5)
+				speed -= 0.08f;
+			if (speed > 0 && speed < 0.5)
+				speed = 0;
 			Debug.Log(speed);
 		}
 		if (Input.GetKey(KeyCode.S)){	
