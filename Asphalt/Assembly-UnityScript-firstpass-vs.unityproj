@@ -58,7 +58,7 @@
      <None Include="Assets\Plugins\donotdelete.txt" />
      <None Include="Assets\Stockcar\ReadMe.txt" />
  <Reference Include="WiimoteLib">
- <HintPath>F:/UnityData/Asphalt/Asphalt/Assets/Plugins/WiimoteLib.dll</HintPath>
+ <HintPath>F:/Github/Git_local/Asphalt/Asphalt/Assets/Plugins/WiimoteLib.dll</HintPath>
  </Reference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
