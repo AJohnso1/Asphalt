@@ -36,7 +36,7 @@ public class Carmovment : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.A) || InputBroker.GetKeyDown(LeftWiimoteName + ":A")){	
 			steeringRoationAngle -= 5f;
-			Debug.Log(steeringRoationAngle);
+			Debug.Log(steeringRoationAngle);	
 		}
 		if (Input.GetKey (KeyCode.D) || InputBroker.GetKeyDown(LeftWiimoteName + ":B")) {
 			steeringRoationAngle += 5f;
@@ -51,7 +51,7 @@ public class Carmovment : MonoBehaviour {
 		Vector3 leftwiiposition = leftwii.transform.position;
 		Vector3 rightwiiposition = rightwii.transform.position;
 		Vector3 link = rightwiiposition - leftwiiposition;
-		Debug.Log ("Angle: " + angle);
+	//	Debug.Log ("Angle: " + angle);
 
 	}
 
