@@ -13,7 +13,7 @@ public class Carmovment : MonoBehaviour {
 	private float steeringRoationAngle;
 
 	void OnGUI() {
-		GUI.Label(new Rect(100, 100, 1000, 200), speed.ToString());
+		GUI.Label(new Rect(100, 100, 1000, 200), (speed*3.6).ToString());
 	}
 	
 	// Use this for initialization
@@ -36,13 +36,12 @@ public class Carmovment : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.A) || InputBroker.GetKeyDown(LeftWiimoteName + ":A")){	
 			steeringRoationAngle -= 5f;
-			Debug.Log(steeringRoationAngle);	
+			Debug.Log(steeringRoationAngle);
 		}
 		if (Input.GetKey (KeyCode.D) || InputBroker.GetKeyDown(LeftWiimoteName + ":B")) {
 			steeringRoationAngle += 5f;
 			Debug.Log(steeringRoationAngle);
 		}
-
 	}
 
 	private void getRotationAngle(){

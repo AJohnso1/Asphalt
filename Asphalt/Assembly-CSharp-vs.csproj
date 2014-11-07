@@ -46,6 +46,10 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\GenericCarProject\Scripts\CameraFollow.cs" />
+     <Compile Include="Assets\GenericCarProject\Scripts\CarController.cs" />
+     <Compile Include="Assets\GenericCarProject\Scripts\Deformer.cs" />
+     <Compile Include="Assets\GenericCarProject\Scripts\SkidMarker.cs" />
      <Compile Include="Assets\OVR\OVRImageEffects\OVRImageEffectBase.cs" />
      <Compile Include="Assets\OVR\OVRImageEffects\OVRLensCorrection.cs" />
      <Compile Include="Assets\OVR\Scripts\OVRCamera.cs" />
@@ -74,6 +78,7 @@
      <Compile Include="Assets\Scripts\WiimoteClient.cs" />
      <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\OVR\OVRImageEffects\OVRLensCorrection_CA.shader" />
+     <None Include="Assets\GenericCarProject\Skidmarks.shader" />
      <None Include="Assets\OVR\OVRImageEffects\OVRLensCorrection.shader" />
      <None Include="Assets\OVR\Shaders\OVRGUIShader.shader" />
      <None Include="Assets\Plugins\donotdelete.txt" />
