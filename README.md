@@ -1,4 +1,4 @@
-#Asphalt: Yeeqi Wang(Yeti)'s branch
+#Asphalt: Master's branch
 =======
 #A City Driving Simulator
 
