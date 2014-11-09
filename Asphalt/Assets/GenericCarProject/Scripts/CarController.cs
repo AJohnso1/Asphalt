@@ -33,25 +33,52 @@ public class CarController : MonoBehaviour {
 		public bool handbreak;
 		public float vertical;
 		public float horizontal;
-		
+
 		public void SetInput() {
 			handbreak = Input.GetButton("Jump");
 			vertical = Input.GetAxis("Vertical");
 			horizontal = Input.GetAxis("Horizontal");
+
 		}
 	}
+
+	public GUIStyle myStyle;
+	public Texture aTexture;
+	private Vector2 pivotPoint;
+	private float speed;
+	private Vector3 v3Velocity;
+	private float engineTorque;
 	
+	void OnGUI() {
+		/**
+		GUI.Label(new Rect(285, 270, 100, 100), ((int)(v3Velocity.magnitude*10f)).ToString()+"MPH",myStyle);
+		pivotPoint = new Vector2(335, 320);
+		Debug.Log ("speed:"+ v3Velocity.magnitude);
+		GUIUtility.RotateAroundPivot(v3Velocity.magnitude*15f-120f, pivotPoint);
+		Graphics.DrawTexture(new Rect(334, 285, 2, 35), aTexture);
+		**/
+		GUI.Label(new Rect(185, 170, 100, 100), ((int)(v3Velocity.magnitude*6f)).ToString()+"MPH",myStyle);
+		pivotPoint = new Vector2(235, 220);
+		Debug.Log ("speed:"+ v3Velocity.magnitude);
+		GUIUtility.RotateAroundPivot(v3Velocity.magnitude*9f-120f, pivotPoint);
+		Graphics.DrawTexture(new Rect(234, 185, 2, 35), aTexture);
+	}
+
 	class Speedometer {
 		Vector3 lastPos;
 		Vector3 currentPos;
 		public float KPH;
 		public float MPH;
-		
-		public void CalcSpeed(Vector3 currentPosition) {
+
+
+		public float CalcSpeed(Vector3 currentPosition) {
 			lastPos = currentPos;
 			currentPos = currentPosition;
 			KPH = (Vector3.Distance(lastPos, currentPos) / Time.deltaTime) * 3.6f;
-			MPH = KPH * 1.609344f;
+			MPH = KPH * 1.6f;
+
+			return MPH;
+
 		}
 	}
 	
@@ -77,8 +104,7 @@ public class CarController : MonoBehaviour {
 	
 	void Update () {
 		inputer.SetInput();
-		
-		speedometer.CalcSpeed(transform.position);
+		speed = speedometer.CalcSpeed(transform.position);
 		engine.RPM = CalcEngineRPM(engine.currentGear);
 		ShiftGears();
 
@@ -87,6 +113,10 @@ public class CarController : MonoBehaviour {
 		if (audio.pitch > 2) {
 			audio.pitch = 2;
 		}
+		Rigidbody rb = GetComponent<Rigidbody>();
+		v3Velocity = rb.velocity; 
+	//	Debug.Log (v3Velocity.magnitude);
+
 		
 		audio.pitch *= Time.timeScale;
 			
@@ -136,7 +166,7 @@ public class CarController : MonoBehaviour {
 	
 	void WheelActions(Wheel wheel) {
 		// Calc engine force on wheel
-		float engineTorque = 0;
+		engineTorque = 0;
 		
 		if (!wheel.isFront && Mathf.Abs(engine.RPM) < engine.maxRPM) {
 			if (inputer.vertical > 0 && engine.RPM >= 0) 
