@@ -59,7 +59,7 @@ public class CarController : MonoBehaviour {
 		**/
 		GUI.Label(new Rect(185, 170, 100, 100), ((int)(v3Velocity.magnitude*6f)).ToString()+"MPH",myStyle);
 		pivotPoint = new Vector2(235, 220);
-		Debug.Log ("speed:"+ v3Velocity.magnitude);
+//		Debug.Log ("speed:"+ v3Velocity.magnitude);
 		GUIUtility.RotateAroundPivot(v3Velocity.magnitude*9f-120f, pivotPoint);
 		Graphics.DrawTexture(new Rect(234, 185, 2, 35), aTexture);
 	}

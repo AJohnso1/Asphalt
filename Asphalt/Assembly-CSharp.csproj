@@ -71,6 +71,7 @@
      <Compile Include="Assets\Scripts\InputBroker.cs" />
      <Compile Include="Assets\Scripts\InputSimulator.cs" />
      <Compile Include="Assets\Scripts\PhysicalSpace.cs" />
+     <Compile Include="Assets\Scripts\ResetHMD.cs" />
      <Compile Include="Assets\Scripts\Steering.cs" />
      <Compile Include="Assets\Scripts\Tracker.cs" />
      <Compile Include="Assets\Scripts\ViconClient.cs" />

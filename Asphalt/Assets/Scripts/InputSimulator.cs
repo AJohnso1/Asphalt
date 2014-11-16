@@ -15,6 +15,10 @@ public class InputSimulator : MonoBehaviour {
 	public float RiftDK1X = 0.0f;
 	public float RiftDK1Y = 1.75f;
 	public float RiftDK1Z = 0.0f;
+	public float cRiftDK1X = 0.0f;
+	public float cRiftDK1Y = 1.75f;
+	Vector3 riftVector = new Vector3 (0f, 0f, 0f);
+	public float cRiftDK1Z = 0.0f;
 	public float RiftDK1H = 0.0f;
 	public float RiftDK1P = 15.0f;
 	public float RiftDK1R = 0.0f;
@@ -258,9 +262,15 @@ public class InputSimulator : MonoBehaviour {
 	
 	// Store InputSimulator values in InputBroker 
 	void UpdateInputBroker () {
-
 		// Update RiftDK1's Vicon
-		InputBroker.SetPosition(RiftDK1Vicon, new Vector3(RiftDK1X, RiftDK1Y, RiftDK1Z));
+		if (Input.GetKeyDown (KeyCode.R)) {
+			riftVector = new Vector3(RiftDK1X,RiftDK1Y-1.75f,RiftDK1Z);
+		} else {
+			cRiftDK1X = RiftDK1X-riftVector.x;
+			cRiftDK1Y = RiftDK1Y-riftVector.y;
+			cRiftDK1Z = RiftDK1Z-riftVector.z;
+			InputBroker.SetPosition(RiftDK1Vicon, new Vector3(cRiftDK1X, cRiftDK1Y, cRiftDK1Z));	
+		}
 		Quaternion OculusRiftQuaternion = Quaternion.Euler(RiftDK1P, RiftDK1H, RiftDK1R);
 		InputBroker.SetRotation(RiftDK1Vicon, OculusRiftQuaternion);
 
